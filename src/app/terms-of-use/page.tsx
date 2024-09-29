@@ -1,11 +1,11 @@
 import Head from 'next/head'; 
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import React from 'react';
 
-export const metadata: Metadata = {
-  title: "BESPOKE XV & FORMAL | Terms of use",
-  description: "Bespoke XV & Formal Terms of use",
-};
+// export const metadata: Metadata = {
+//   title: "BESPOKE XV & FORMAL | Terms of use",
+//   description: "Bespoke XV & Formal Terms of use",
+// };
 
 const TermsOfUse = () => {
   return (
