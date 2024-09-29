@@ -3,69 +3,100 @@ import Menu from "./Menu";
 import Image from "next/image";
 import SearchBar from "./SearchBar";
 import dynamic from "next/dynamic";
-// import NavIcons from "./NavIcons";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import EmailIcon from '@mui/icons-material/Email';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { spacing } from '@mui/system';
+import Tooltip from "@mui/material/Tooltip";
 
 const NavIcons = dynamic(() => import("./NavIcons"), { ssr: false });
 
 const Navbar = () => {
   return (
-    // MAIN NAVBAR WRAPPER------------------
-    <div className="h-20 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative bg-gradient-to-r from-pink-100 to-white-500">
+    // MAIN NAVBAR WRAPPER
+    <div className="relative">
+      {/* DESKTOP VARIANT */}
+      <div className="hidden md:flex flex-col items-center">
+        {/* TOP SECTION: NAVICONS, LOGO, SEARCH BAR */}
+        <div className="flex justify-between items-center w-full  py-4 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+          {/* RIGHT ICONS (SOCIAL) */}
+          <div className="flex gap-4">
+          {/* Add social icons here if needed */}
+          <Tooltip title="Location" arrow>
+          <a href="https://maps.app.goo.gl/XiNUJv9b5uWQyLtq7" target="_blank">
+           <LocationOnIcon className="nav-social"  sx={{ p: 1.5 }} />
+          </a>
+          </Tooltip>
 
-      {/* MOBILE VARIANT PSEUDO COMPONENT------------------- */}
-      <div className="h-full flex items-center justify-between md:hidden">
-        <Link href="/">
-           <Image src="/logo.png" alt="" width={120} height={120} />
-          {/* <div className="text-2xl tracking-wide">BESPOKE XV & FORMAL</div> */}
+          <Tooltip title="Contact Us via Email" arrow>
+          <a href="mailto:Johanna@bespokequince.com" target="_blank">
+          <EmailIcon className="nav-social" sx={{ p: 1.5 }} />
+          </a>
+          </Tooltip>
+
+          <Tooltip title="Contact Us via WhatsApp" arrow>
+         <a href="https://api.whatsapp.com/send?phone=18324416021&text-Hello,%20more%20information!" target="_blank">
+         <WhatsAppIcon className="nav-social" sx={{ p: 1.5 }} />
+         </a>
+         </Tooltip>
+
+         <Tooltip title="Call Us" arrow>
+         <a href="tel:+18324416021" target="_blank">
+         <LocalPhoneIcon className="nav-social" sx={{ p: 1.5 }} />
+         </a>
+         </Tooltip>
+          {/* Add more icons as needed */}
+          </div>
+
+        {/* LOGO: Centered using flex-grow and alignment adjustments */}
+          <div className="flex-grow flex justify-center items-center ml-24">
+            <Link href="/">
+              <Image src="/logo.png" alt="Bespoke Logo" width={150} height={150} className="object-contain" />
+            </Link>
+          </div>
+
+          {/* NAVICONS */}
+          <div className="flex items-center gap-4">
+          <SearchBar className="max-w-[200px]" />
+          <NavIcons />
+         </div>
+        </div>
+
+        {/* BOTTOM SECTION: LINKS */}
+        <div className="w-full flex justify-center items-center gap-8 bg-pinky pt-5">
+          <Link href="/" className="nav-links text-bluey">HOME</Link>
+          <div className="relative group">
+              <div className="flex items-center">
+                <Link href="/list?cat=all-products" className="nav-links text-bluey">STORE</Link>
+              </div>
+              <div className="absolute rounded-md text-center left-1/2 transform -translate-x-1/2 hidden group-hover:flex flex-col subm shadow-lg gap-2 z-10 w-56">
+              <Link href="/list?cat=accessories" className="text-bluey px-4 py-2 hover:font-semibold">Accessories</Link>
+                <Link href="/list?cat=best-sellers" className="text-bluey px-4 py-2 hover:font-semibold">Best Sellers</Link>
+                <Link href="/list?cat=children" className="text-bluey px-4 py-2 hover:font-semibold">Children</Link>
+                <Link href="/list?cat=new-collection" className="text-bluey px-4 py-2 hover:font-semibold">New Collection</Link>
+                <Link href="/list?cat=prom" className="text-bluey px-4 py-2 hover:font-semibold">PROM</Link>
+                <Link href="/list?cat=quinceanera" className="text-bluey px-4 py-2 hover:font-semibold">Quinceanera</Link>
+                <Link href="/list?cat=special-ocassion" className="text-bluey px-4 py-2 hover:font-semibold">Special Ocassion</Link>
+                <Link href="/list?cat=tuxedos-suits" className="text-bluey px-4 py-2 hover:font-semibold">Tuxedos & Suits</Link>
+              </div>
+            </div>
+          <Link href="/about" className="nav-links text-bluey">ABOUT</Link>
+          <Link href="/contact" className="nav-links text-bluey">CONTACT</Link>
+        </div>
+      </div>
+
+      {/* MOBILE VARIANT */}
+      <div className="flex md:hidden items-center justify-between h-20 px-4 md:px-8 bg-gradient-to-r from-pink-100 to-white-500">
+        <Link href="/" className="flex items-center">
+          <Image src="/logo.png" alt="Bespoke Logo" width={120} height={120} />
         </Link>
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-4">
           <NavIcons />
           <Menu />
         </div>
       </div>
-      {/* MOBILE VARIANT PSEUDO COMPONENT------------------- */}
-
-      {/* BIGGER SCREENS MUTATION----------------- */}
-      <div className="hidden md:flex items-center text-bluey justify-between gap-8 h-full">
-
-        {/* LEFT-------------------------------------- */}
-        <div className="w-1/3 xl:w-1/2 flex items-center gap-12">
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.png" alt="" width={120} height={120} />
-            {/* <div className="text-1xl tracking-wide font-semibold">BESPOKE</div> */}
-          </Link>
-          <div className="hidden xl:flex gap-4">
-            <Link href="/" className="hover:transition duration-500 hover:scale-110">Home</Link>
-            <div className="relative group">
-              <div className="flex items-center">
-                <Link href="/list?cat=all-products" className="hover:transition duration-500 hover:scale-110">Store</Link>
-              </div>
-              <div className="absolute rounded-md text-center left-1/2 transform -translate-x-1/2 hidden group-hover:flex flex-col subm shadow-lg gap-2 mt-0 z-10 w-56">
-              <Link href="/list?cat=accessories" className="px-4 py-2 hover:text-hovr hover:font-semibold">Accessories</Link>
-                <Link href="/list?cat=best-sellers" className="px-4 py-2 hover:text-hovr hover:font-semibold">Best Sellers</Link>
-                <Link href="/list?cat=children" className="px-4 py-2 hover:text-hovr hover:font-semibold">Children</Link>
-                <Link href="/list?cat=new-collection" className="px-4 py-2 hover:text-hovr hover:font-semibold">New Collection</Link>
-                <Link href="/list?cat=prom" className="px-4 py-2 hover:text-hovr hover:font-semibold">PROM</Link>
-                <Link href="/list?cat=quinceanera" className="px-4 py-2 hover:text-hovr hover:font-semibold">Quinceanera</Link>
-                <Link href="/list?cat=special-ocassion" className="px-4 py-2 hover:text-hovr hover:font-semibold">Special Ocassion</Link>
-                <Link href="/list?cat=tuxedos-suits" className="px-4 py-2 hover:text-hovr hover:font-semibold">Tuxedos & Suits</Link>
-              </div>
-            </div>
-            <Link href="/about" className="hover:transition duration-500 hover:scale-110">About</Link>
-            <Link href="/contact" className="hover:transition duration-500 hover:scale-110">Contact</Link>
-          </div>
-        </div>
-
-        {/* RIGHT --------------------------------------*/}
-        <div className="w-2/3 xl:w-1/2 flex items-center justify-between gap-8">
-          <SearchBar />
-          <NavIcons />
-        </div>
-
-      </div>
-      {/* BIGGER SCREENS MUTATION----------------- */}
-
-    </div>// MAIN NAVBAR WRAPPER------------------
+    </div>
   );
 };
 

@@ -9,6 +9,9 @@ import { useWixClient } from "@/hooks/useWixClient";
 import Cookies from "js-cookie";
 import { useCartStore } from "@/hooks/useCartStore";
 import Tooltip from "@mui/material/Tooltip";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LocalMallIcon from '@mui/icons-material/LocalMall';
+
 
 const NavIcons = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -50,11 +53,11 @@ const NavIcons = () => {
   return (
     <div className="flex items-center gap-4 xl:gap-6 relative text-bluey">
       <Tooltip title={isLoggedIn ? "Profile" : "Log In or Sign Up"} arrow>
-        <Image
-          src="/profile-t.png"
-          alt=""
-          width={22}
-          height={22}
+        <AccountCircleIcon
+          // src="/profile-t.png"
+          className="user-icon"
+          style={{ width: 25, height: 25 }}
+          sx={{ mt: 0.4 }}
           className="cursor-pointer"
           onClick={handleProfile}
         />
@@ -82,8 +85,8 @@ const NavIcons = () => {
           className="relative cursor-pointer"
           onClick={() => setIsCartOpen((prev) => !prev)}
         >
-          <Image src="/cart-t.png" alt="" width={22} height={22} />
-          <div className="absolute -top-4 -right-4 w-6 h-6 bg-bluey rounded-full text-pinky text-sm flex items-center justify-center">
+          <LocalMallIcon className="cart-icon" style={{ width: 25, height: 25 }} />
+          <div className="absolute -top-4 -right-4 w-6 h-6 bg-pinky rounded-full text-bluey text-sm flex items-center justify-center">
             {counter}
           </div>
         </div>

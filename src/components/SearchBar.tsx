@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = () => {
 
@@ -29,7 +30,7 @@ const SearchBar = () => {
         className="flex-1 bg-transparent outline-none"
       />
       <button className="cursor-pointer">
-        <Image src="/search.png" alt="" width={16} height={16} />
+        <SearchIcon className="search-icon" style={{ width: 20, height: 20 }}  />
       </button>
     </form>
   );
