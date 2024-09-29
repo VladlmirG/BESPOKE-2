@@ -58,7 +58,7 @@ const Navbar = () => {
 
           {/* NAVICONS */}
           <div className="flex items-center gap-4">
-          <SearchBar className="max-w-[200px]" />
+          <SearchBar />
           <NavIcons />
          </div>
         </div>
