@@ -55,10 +55,9 @@ const NavIcons = () => {
       <Tooltip title={isLoggedIn ? "Profile" : "Log In or Sign Up"} arrow>
         <AccountCircleIcon
           // src="/profile-t.png"
-          className="user-icon"
+          className="user-icon cursor-pointer"
           style={{ width: 25, height: 25 }}
           sx={{ mt: 0.4 }}
-          className="cursor-pointer"
           onClick={handleProfile}
         />
       </Tooltip>
