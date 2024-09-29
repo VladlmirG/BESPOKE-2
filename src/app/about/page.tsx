@@ -1,11 +1,11 @@
 import Head from 'next/head'; 
-import { Metadata } from "next";
+// import type { Metadata } from "next";
 import React from 'react';
 
-export const metadata: Metadata = {
-  title: "BESPOKE XV & FORMAL | ABOUT",
-  description: "BESPOKE XV & FORMAL About us Page",
-};
+// export const metadata: Metadata = {
+//   title: "BESPOKE XV & FORMAL | ABOUT",
+//   description: "BESPOKE XV & FORMAL About us Page",
+// };
 
 const About = () => {
   return (
