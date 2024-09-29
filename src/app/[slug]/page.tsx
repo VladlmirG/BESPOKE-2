@@ -6,7 +6,7 @@ import { wixClientServer } from "@/lib/wixClientServer";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import DOMPurify from "isomorphic-dompurify";
-import { Metadata } from "next";
+import  Metadata  from "next";
 
 // Define metadata for this page
 export const generateMetadata = async ({ params }: { params: { slug: string } }): Promise<Metadata> => {
