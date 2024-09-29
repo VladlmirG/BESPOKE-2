@@ -1,5 +1,5 @@
 import Head from 'next/head'; 
-import { Metadata } from "next";
+// import type { Metadata } from "next";
 import Skeleton from "@/components/Skeleton";
 import { wixClientServer } from "@/lib/wixClientServer";
 import Image from "next/image";
@@ -8,10 +8,10 @@ import ProductList from "@/components/ProductList";
 import Filter from "@/components/Filter";
 
 
-export const metadata: Metadata = {
-  title: "BESPOKE XV & FORMAL | THE STORE",
-  description: "Bespoke XV & Formal ONLINE STORE",
-};
+// export const metadata: Metadata = {
+//   title: "BESPOKE XV & FORMAL | THE STORE",
+//   description: "Bespoke XV & Formal ONLINE STORE",
+// };
 
 const ListPage = async ({ searchParams }: { searchParams: any }) => {
   const wixClient = await wixClientServer();
