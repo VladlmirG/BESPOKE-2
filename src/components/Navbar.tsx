@@ -3,11 +3,11 @@ import Menu from "./Menu";
 import Image from "next/image";
 import SearchBar from "./SearchBar";
 import dynamic from "next/dynamic";
+import { spacing } from '@mui/system';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import EmailIcon from '@mui/icons-material/Email';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { spacing } from '@mui/system';
 import Tooltip from "@mui/material/Tooltip";
 
 const NavIcons = dynamic(() => import("./NavIcons"), { ssr: false });
